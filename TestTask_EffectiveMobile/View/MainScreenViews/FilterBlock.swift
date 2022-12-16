@@ -19,11 +19,9 @@ struct FilterBlock: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color(hex: "#010035"))
                     .padding([.top, .bottom], 10)
-                    
                 Spacer()
             }
             .padding(.leading, 30)
-            
             Menu {
                 ForEach(0..<arrayItems.count){item in
                     Button {
@@ -41,7 +39,6 @@ struct FilterBlock: View {
                     Image("baseline_expand_more_black_24pt")
                         .foregroundColor(Color(hex: "#B3B3B3"))
                         .padding(.trailing, 10)
-                    
                 }
             }
             .frame(width: UIScreen.main.bounds.size.width - 100, alignment: .center)
@@ -49,11 +46,5 @@ struct FilterBlock: View {
             .overlay(RoundedRectangle(cornerRadius: 10)
                 .stroke(Color(hex: "#DCDCDC")!))
         }
-    }
-}
-
-struct FilterBlock_Previews: PreviewProvider {
-    static var previews: some View {
-        FilterBlock(nameBlock: "Brand", arrayItems: ["Samsung", "Apple", "Xiaomi", "Huawei", "Oppo", "Sony", "Realme", "Motorola", "LG", "OnePlus"])
     }
 }

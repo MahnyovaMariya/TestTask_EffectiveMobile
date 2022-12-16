@@ -8,7 +8,7 @@
 import Foundation
 
 struct HotSalesDataModel: Hashable, Decodable {
-    var is_new: Bool?
+    let is_new: Bool?
     let title: String
     let subtitle: String
     let picture: String

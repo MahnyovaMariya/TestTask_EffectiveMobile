@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct Checkout: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            print("")
+        } label: {
+            Text("Checkout")
+                .foregroundColor(.white).fontWeight(Font.Weight.heavy)
+        }
+        .frame(width: UIScreen.main.bounds.size.width - 50, height: 55, alignment: .center)
+        .background(Color.init(hex: "#FF6E4E"))
+        .cornerRadius(10)
+        .padding(.top, 20)
     }
 }
 

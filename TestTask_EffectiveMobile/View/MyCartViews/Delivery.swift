@@ -8,8 +8,21 @@
 import SwiftUI
 
 struct Delivery: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text("Delivery")
+                .foregroundColor(.white)
+                .padding(.top, 10)
+                .padding(.leading, 40)
+            Spacer()
+            Text("Free")
+                .foregroundColor(.white)
+                .font(Font.headline)
+                .bold()
+                .padding(.top, 10)
+                .padding(.trailing, 60)
+        }
     }
 }
 

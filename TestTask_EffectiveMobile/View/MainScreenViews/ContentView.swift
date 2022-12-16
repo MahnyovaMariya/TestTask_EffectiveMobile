@@ -1,15 +1,12 @@
 //
 //  ContentView.swift
 //  TestTask_EffectiveMobile
-//
 //  Created by Мария on 05.12.2022.
 //
 
 import SwiftUI
 
 struct ContentView: View {
-    
-    //убрать Mark Pro
     
     let categories: [CategoriesData] = [
         CategoriesData(name: "Phones", image: "outline_phone_iphone_black_36pt"),
@@ -27,14 +24,9 @@ struct ContentView: View {
     ]
     let rows = [GridItem(.fixed(8.0))]
     
-//    @State var counter = 0
-    @State private var like = false
-//    @State private var x = false
     @State var selected: CategoriesData?
     @State private var selectedHeart: BestSellerDataModel?
-//    @State private var selectedHearts = [SelectedHeart]()
     @State private var isShowFilter = false
-    
     @ObservedObject private var contentViewViewModel = ContentViewViewModel()
     
     var body: some View {
@@ -52,7 +44,8 @@ struct ContentView: View {
                                 bestSellerSection
                                 Spacer()
                             }
-                        }.onAppear{ getData() }
+                        }
+                        .onAppear{ getData() }
                     }
                     TapBar()
                 }
@@ -109,8 +102,8 @@ struct ContentView: View {
 
     var hotSalesGallery: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            LazyHGrid(rows: [GridItem(.fixed(CGFloat(/*hotSalesData.count*/contentViewViewModel.hotSalesData.count)))]) {
-                ForEach(/*hotSalesData*/contentViewViewModel.hotSalesData, id: \.self) { hotSalesDataItem in
+            LazyHGrid(rows: [GridItem(.fixed(CGFloat(contentViewViewModel.hotSalesData.count)))]) {
+                ForEach(contentViewViewModel.hotSalesData, id: \.self) { hotSalesDataItem in
                     HotSalesItem(picture: hotSalesDataItem.picture, is_new: hotSalesDataItem.is_new, title: hotSalesDataItem.title, subtitle: hotSalesDataItem.subtitle)
                 }.frame(width: UIScreen.main.bounds.size.width - 20, height: UIScreen.main.bounds.size.width * 1.5, alignment: .leading)
             }
@@ -129,9 +122,6 @@ struct ContentView: View {
     func getData() {
         selected = categories[0]
         contentViewViewModel.loadData()
-//        for i in 0..<contentViewViewModel.bestSellerData.count {
-//            selectedHearts.append(SelectedHeart(id: contentViewViewModel.bestSellerData[i].id, isSelected: false))
-//        }
     }
 }
 

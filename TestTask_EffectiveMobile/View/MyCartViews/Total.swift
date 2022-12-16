@@ -8,13 +8,33 @@
 import SwiftUI
 
 struct Total: View {
+    
+    var total: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text("Total")
+                .foregroundColor(.white)
+                .padding(.top, 10)
+                .padding(.leading, 40)
+            Spacer()
+            Text("$" + String(total))
+                .foregroundColor(.white)
+                .font(Font.headline)
+                .bold()
+                .padding(.top, 10)
+            Text("US")
+                .foregroundColor(.white)
+                .font(Font.footnote)
+                .bold()
+                .padding(.top, 10)
+                .padding(.trailing, 20)
+        }
     }
 }
 
 struct Total_Previews: PreviewProvider {
     static var previews: some View {
-        Total()
+        Total(total: 1000)
     }
 }

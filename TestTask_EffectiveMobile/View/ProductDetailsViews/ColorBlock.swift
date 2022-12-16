@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct ColorBlock: View {
+    
+    var colors: [String]
+    @Binding var selectedColor: String
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct ColorBlock_Previews: PreviewProvider {
-    static var previews: some View {
-        ColorBlock()
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHGrid(rows: [GridItem(.fixed(CGFloat(colors.count)))]) {
+                    ForEach(colors, id: \.self) { item in
+                            Button{
+                                selectedColor = item
+                            } label: {
+                                Image("baseline_done_black_24pt")
+                                    .foregroundColor(selectedColor == item ? .white : Color.init(hex: item))
+                            }
+                            .frame(width: 40, height: 40, alignment: .center)
+                            .background(Color.init(hex: item))
+                            .clipShape(Circle())
+                            .padding(.trailing, 10)
+                    }
+            }
+        }
+        .padding(.leading, 30)
     }
 }

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct SelectedHeart {
+    var id: Int
+    var isSelected: Bool
+}

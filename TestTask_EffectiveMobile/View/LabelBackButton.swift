@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct BackButton: View {
+struct LabelBackButton: View {
+    
     var body: some View {
         Image("outline_arrow_back_ios_black_20pt")
             .frame(width: 37, height: 37, alignment: .center)
@@ -18,8 +19,8 @@ struct BackButton: View {
     }
 }
 
-struct BackButton_Previews: PreviewProvider {
+struct LabelBackButton_Previews: PreviewProvider {
     static var previews: some View {
-        BackButton()
+        LabelBackButton()
     }
 }

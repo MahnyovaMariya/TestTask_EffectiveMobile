@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ToolBar: View {
+    
     var text: String
     var picture: String
     
@@ -17,7 +18,6 @@ struct ToolBar: View {
             Text(text)
                 .fontWeight(.bold)
                 .foregroundColor(Color.init(hex: "#010035"))
-            
             if text == "Product Details" {
                 Spacer()
             }

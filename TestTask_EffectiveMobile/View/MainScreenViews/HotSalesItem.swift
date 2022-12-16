@@ -18,7 +18,8 @@ struct HotSalesItem: View {
         VStack {
             ZStack {
                 AsyncImage(url: URL(string: picture)) { image in
-                    image.resizable()
+                    image
+                        .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(15)
                 } placeholder: {
@@ -31,30 +32,32 @@ struct HotSalesItem: View {
                             Image("new")
                             Spacer()
                         }
-                    }.padding(.leading, 20)
+                    }
+                    .padding(.leading, 20)
                     HStack {
                         Text(title)
                             .font(.system( size: 25))
                             .bold()
                             .foregroundColor(.white)
                         Spacer()
-                    }.padding(.leading, 20)
+                    }
+                    .padding(.leading, 20)
                     HStack {
                         Text(subtitle)
-                            .font(Font.custom("Mark Pro", size: 11))
+                            .font(Font.caption)
                             .foregroundColor(.white)
                             .padding(.bottom, 5)
                         Spacer()
-                    }.padding(.leading, 20)
+                    }
+                    .padding(.leading, 20)
                     HStack {
                         Button {
-                            print("!")
+                            print("")
                         } label: {
                             NavigationLink(destination: ProductDetails()) {
                                 Text("Buy now!")
-                                    .font(Font.custom("Mark Pro", size: 11))
+                                    .font(Font.caption)
                                     .foregroundColor(Color.init(hex: "#010035"))
-                                
                                     .padding([.top, .bottom], 2)
                                     .padding([.leading, .trailing], 15)
                             }
@@ -64,14 +67,10 @@ struct HotSalesItem: View {
                         Spacer()
                     }
                     .padding(.leading, 20)
-                }.padding([.top, .bottom], 10)
+                }
+                .padding([.top, .bottom], 10)
             }
-        }.padding(10)
+        }
+        .padding(10)
     }
 }
-
-//struct HotSalesItem_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HotSalesItem()
-//    }
-//}

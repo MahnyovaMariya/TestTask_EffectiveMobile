@@ -12,19 +12,17 @@ class ContentViewViewModel: ObservableObject {
 
     @Published var bestSellerData = [BestSellerDataModel]()
     @Published var hotSalesData = [HotSalesDataModel]()
-    
     var cancellable: AnyCancellable?
 
     func loadData() {
-        
         cancellable = DataLoader().getResponse()
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
-                case .failure(let error):
-                    print(error)
-                case .finished:
-                    print("finished")
+                    case .failure(let error):
+                        print(error)
+                    case .finished:
+                        print("finished")
                 }
             } receiveValue: { bSellerData in
                 for elem in bSellerData.best_seller {

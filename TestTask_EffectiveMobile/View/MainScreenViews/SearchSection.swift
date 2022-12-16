@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SearchSection: View {
+    
     @State private var str = ""
     
     var body: some View {
@@ -19,22 +20,18 @@ struct SearchSection: View {
                         .frame(minWidth: 24, maxWidth: 72, minHeight: 24, maxHeight: 72)
                     Spacer()
                 }
-                
-                
                 TextField("Search", text: $str)
-                
                     .padding([.top, .bottom], 10)
                     .padding(.leading, 50)
-                    .font(Font.custom("Mark Pro", size: 13, relativeTo: SwiftUI.Font.TextStyle.callout))
+                    .font(Font.callout)
                     .foregroundColor(Color.init(hex: "#010035"))
                     .overlay(RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.white))
                     .padding(10)
-                
             }
-            
             Image("img")
-        }.padding([.leading, .trailing], 30)
+        }
+        .padding([.leading, .trailing], 30)
     }
 }
 

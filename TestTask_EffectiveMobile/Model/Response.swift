@@ -8,6 +8,6 @@
 import Foundation
 
 struct Response: Decodable {
-    var best_seller: [BestSellerDataModel]
-    var home_store: [HotSalesDataModel]
+    let best_seller: [BestSellerDataModel]
+    let home_store: [HotSalesDataModel]
 }
